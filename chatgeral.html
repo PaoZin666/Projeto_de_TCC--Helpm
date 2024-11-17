@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/css/reset.css">
+	<link rel="stylesheet" href="./src/css/chatgeral.css">
+    <title>Helpm</title>
+</head>
+
+<body>
+
+    <header>
+        <img src="./src/img/Opera Instantâneo_2024-10-28_121708_127.0.0.1.png" alt="Logo do Site">
+        <h1>ChatGeral - Suporte e Orientações</h1>
+    </header>
+    
+    <main>
+        <!-- Envio de informações sobre áreas de risco -->
+        <section>
+            <h2>Envio de Informações sobre Áreas de Risco</h2>
+            <form id="areaRiscoForm">
+                <div class="form-group">
+                    <label for="area">Área de Risco (Descreva):</label>
+                    <textarea id="area" name="area" rows="4" placeholder="Descreva a área e o tipo de risco..."></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="enviarAreaRisco()">Enviar Informações</button>
+                </div>
+            </form>
+            <div class="alert" id="alertRisco">Informação enviada com sucesso!</div>
+        </section>
+    
+        <!-- Suporte para denúncias anônimas -->
+        <section>
+            <h2>Suporte para Denúncias Anônimas</h2>
+            <form id="denunciaForm">
+                <div class="form-group">
+                    <label for="denuncia">Descrição da Denúncia:</label>
+                    <textarea id="denuncia" name="denuncia" rows="4" placeholder="Descreva a situação que deseja denunciar..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="identificacao">Deseja se identificar?</label>
+                    <select id="identificacao" name="identificacao">
+                        <option value="sim">Sim</option>
+                        <option value="nao">Prefiro não me identificar (Modo Visitante)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="enviarDenuncia()">Enviar Denúncia</button>
+                </div>
+            </form>
+            <div class="alert" id="alertDenuncia">Denúncia enviada com sucesso!</div>
+        </section>
+    
+        <!-- Agendamento de comparecimento online -->
+        <section>
+            <h2>Agendamento de Comparecimento Online</h2>
+            <form id="agendamentoForm">
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="data">Data do Comparecimento:</label>
+                    <input type="date" id="data" name="data">
+                </div>
+                <div class="form-group">
+                    <label for="hora">Horário do Comparecimento:</label>
+                    <input type="time" id="hora" name="hora">
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="agendarHorario()">Agendar</button>
+                </div>
+            </form>
+            <div class="alert" id="alertAgendamento">Agendamento realizado com sucesso!</div>
+        </section>
+    </main>
+    
+    
+    <script>
+        function enviarAreaRisco() {
+            document.getElementById('alertRisco').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('alertRisco').style.display = 'none';
+            }, 3000);
+        }
+    
+        function enviarDenuncia() {
+            document.getElementById('alertDenuncia').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('alertDenuncia').style.display = 'none';
+            }, 3000);
+        }
+    
+        function agendarHorario() {
+            document.getElementById('alertAgendamento').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('alertAgendamento').style.display = 'none';
+            }, 3000);
+        }
+    </script>
+    
+    </body>
+    </html>
