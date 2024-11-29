@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="../../public/assents/img/logo.png" type="image/x-icon">
+    <title>Mapa de Salvador | Testando</title>
+    <link rel="stylesheet" href="../estilos/mapa.css">
+</head>
+<body>
+
+    <!-- Header com título -->
+    <header>
+        <h1>Mapa de Salvador | Testando</h1>
+        <p>Passe o mouse sobre as regiões para ver seus nomes.</p>
+    </header>
+
+    <!-- Container para exibir o nome da região -->
+    <div id="regiaoInfo" class="info-box">
+        <p id="regiaoNome">Passe o mouse sobre uma região.</p>
+    </div>
+
+    <!-- Carregar o SVG -->
+    <object id="mapa" type="image/svg+xml" data="/utils/svg/mapa_alterar.svg"></object>
+
+    <script src="../scripts/mapa.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    background: #f7fafe; /* Fundo suave */
+    color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+body::-webkit-scrollbar {
+    width: 0px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: #eaf4fc; /* Azul suave */
+    border-bottom: 2px solid #d1e6f5;
+}
+
+header img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #005f99;
+    text-align: center;
+}
+
+main {
+    background: whitesmoke;
+    padding: 15px;
+}
+
+section {
+    background: ghostwhite;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 40%);
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #005f99;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: none;
+}
+
+.form-group button {
+    background: #005f99; /* Azul */
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+.form-group button:hover {
+    background: #004977; /* Azul escuro */
+    transform: scale(1.02);
+}
+
+.alert {
+    display: none;
+    background-color: #28a745; /* Verde para sucesso */
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select,
+    .form-group button {
+        font-size: 0.9rem;
+    }
+}

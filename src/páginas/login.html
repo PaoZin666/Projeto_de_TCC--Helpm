@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" href="../../public/assents/img/logo.png" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="../estilos/reset.css">
+	<link rel="stylesheet" href="../estilos/login.css">
+	<title>Helpm - Login</title>
+</head>
+
+<body>
+
+	<main>
+		<div class="container">
+			<div class="login-wrapper">
+				<div class="login-header">
+					<img class="logo" src="../../public/assents/img/logo.png">
+					<h2 class="login-title">Login</h2>
+				</div>
+				<form action="/login" method="POST" class="login-form">
+					<div class="form-group">
+						<label for="email" class="form-label">Email:</label>
+						<input type="email" id="email" name="email" class="form-input" required>
+					</div>
+					<div class="form-group">
+						<label for="password" class="form-label">Senha:</label>
+						<input type="password" id="password" name="password" class="form-input" required>
+					</div>
+
+					<div class="form-group form-group--checkbox">
+						<input type="checkbox" id="remember" name="remember" class="form-checkbox">
+						<label for="remember" class="form-label--checkbox">Lembrar-me</label>
+					</div>
+
+					<button type="submit" class="login-button">Entrar</button>
+
+					<div class="form-footer">
+						<p class="signup-link">Não tem uma conta? <a href="./register.html">Cadastre-se</a></p>
+						<p class="forgot-password"><a href="./forgot-password">Esqueceu a senha?</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+</body>
+
+</html>

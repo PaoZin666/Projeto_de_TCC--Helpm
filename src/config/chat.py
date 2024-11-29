@@ -1,0 +1,3 @@
+class Conversa:
+    pass
+
