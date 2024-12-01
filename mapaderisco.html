@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de Risco de Salvador</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        /* Estilos gerais do corpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a2f62;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #0f3e73;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+
+        /* Container do mapa */
+        #map {
+            height: 70vh;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #2d3e50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Títulos */
+        h2 {
+            text-align: center;
+            margin: 20px;
+            color: white;
+        }
+
+        /* Estilos para as legendas de risco */
+        .legend {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: left;
+        }
+        .legend div {
+            margin: 5px 0;
+        }
+        .legend span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+        }
+        .foto-redonda {
+            width: 150px; /* Tamanho da imagem */
+            height: 150px; /* Tamanho da imagem */
+            border-radius: 50%; /* Faz a imagem ficar redonda */
+            float: left; /* Coloca a imagem à esquerda */
+            margin-right: 20px; /* Espaço entre a imagem e o conteúdo à direita */
+        }
+        .conteudo {
+            font-size: 18px; /* Tamanho do texto */
+            line-height: 1.6; /* Espaçamento entre as linhas */
+        }
+
+       
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="fotos/helpm.jpg" alt="Descrição da imagem" class="foto-redonda">
+<br>
+<br>
+    <h1>MAPA DE RISCO</h1>
+    <p>SALVADOR - BAHIA</p>
+
+<h4>Mapa de Risco de Salvador por Bairro</h4>
+
+<div id="map"></div>
+
+<div class="legend">
+    <h4>Legenda de Risco - Bairro</h4>
+    <div><span style="background-color: #FF0000;"></span> Altamente Perigoso</div>
+    <div><span style="background-color: #FFA500;"></span> Consideravelmente Perigoso</div>
+    <div><span style="background-color: #FFFF00;"></span> Levemente Perigoso</div>
+    <div><span style="background-color: #0000FF;"></span> Minimamente Perigoso</div>
+</div>
+
+
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([-12.9714, -38.5014], 12);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var bairros = [
+        { name: "Fazenda Grande do Retiro", riskLevel: "alto", lat: -12.9999, lng: -38.4643 },
+        { name: "Paripe", riskLevel: "alto", lat: -12.9577, lng: -38.4536 },
+        { name: "Liberdade", riskLevel: "alto", lat: -12.9730, lng: -38.4776 },
+        { name: "Vale das Pedrinhas", riskLevel: "alto", lat: -12.9614, lng: -38.4870 },
+        { name: "Nordeste de Amaralina", riskLevel: "médio", lat: -12.9812, lng: -38.4781 },
+        { name: "Fazenda Coutos", riskLevel: "médio", lat: -12.9295, lng: -38.4874 },
+        { name: "São Caetano", riskLevel: "médio", lat: -12.9572, lng: -38.4842 },
+        { name: "Tancredo Neves", riskLevel: "médio", lat: -12.9700, lng: -38.4695 },
+        { name: "Pernambués", riskLevel: "médio", lat: -12.9794, lng: -38.4883 },
+        { name: "Federação", riskLevel: "médio", lat: -12.9742, lng: -38.4770 },
+        { name: "Barra", riskLevel: "baixo", lat: -13.0000, lng: -38.5022 },
+        { name: "Rio Vermelho", riskLevel: "baixo", lat: -13.0039, lng: -38.4960 },
+        { name: "Ondina", riskLevel: "baixo", lat: -13.0055, lng: -38.4834 },
+        { name: "Graça", riskLevel: "baixo", lat: -13.0107, lng: -38.4765 },
+        { name: "Vitória", riskLevel: "baixo", lat: -13.0110, lng: -38.4792 },
+        { name: "Horto Florestal", riskLevel: "baixo", lat: -13.0105, lng: -38.4600 }
+    ];
+
+    function getColor(riskLevel) {
+        return riskLevel === "alto" ? "#FF0000" : 
+               riskLevel === "médio" ? "#FFA500" : 
+               "#0000FF";  
+    }
+
+    bairros.forEach(function(bairro) {
+        var marker = L.circleMarker([bairro.lat, bairro.lng], {
+            color: getColor(bairro.riskLevel),
+            radius: 10,
+            fillOpacity: 0.5
+        }).addTo(map);
+        
+        marker.bindPopup("<b>" + bairro.name + "</b><br>Nível de Risco: " + bairro.riskLevel);
+    });
+</script>
+
+</body>
+</html>
+
