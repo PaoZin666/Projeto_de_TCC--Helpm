@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./public/assents/img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/estilos/reset.css">
+    <link rel="stylesheet" href="./src/estilos/retratofalado.css">
+    <title>Helpm - Retrato Falado</title>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+        <header>
+            <h1>Retrato Falado</h1>
+            <p>Construa retratos com base em descrições detalhadas.</p>
+        </header>
+
+            <section>
+                <h2>Como Funciona</h2>
+                <p>1. Preencha o formulário com as características que você lembra.</p>
+                <p>2. Escolha o estilo do retrato.</p>
+                <p>3. Envie as informações para gerar o retrato.</p>
+            </section>
+
+            <section>
+                <h2>Descreva a Pessoa</h2>
+                <form>
+                    <label for="formaRosto">Forma do rosto:</label>
+                    <select id="formaRosto" name="formaRosto">
+                        <option value="oval">Oval</option>
+                        <option value="quadrado">Quadrado</option>
+                        <option value="redondo">Redondo</option>
+                    </select>
+
+                    <label for="corPele">Cor da pele:</label>
+                    <input type="text" id="corPele" name="corPele" placeholder="Ex: Claro, médio, escuro">
+
+                    <label for="cabelo">Cabelo:</label>
+                    <input type="text" id="cabelo" name="cabelo" placeholder="Ex: Preto, longo, cacheado">
+
+                    <label for="olhos">Olhos:</label>
+                    <input type="text" id="olhos" name="olhos" placeholder="Ex: Castanhos, grandes, amendoados">
+
+                    <label for="nariz">Nariz:</label>
+                    <input type="text" id="nariz" name="nariz" placeholder="Ex: Fino, largo, reto">
+
+                    <label for="boca">Boca:</label>
+                    <input type="text" id="boca" name="boca" placeholder="Ex: Carnuda, fina, larga">
+
+                    <label for="detalhes">Outros detalhes:</label>
+                    <textarea id="detalhes" name="detalhes" rows="4"
+                        placeholder="Ex: Cicatrizes, tatuagens, óculos"></textarea>
+
+                    <button type="submit">Gerar Retrato</button>
+                </form>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

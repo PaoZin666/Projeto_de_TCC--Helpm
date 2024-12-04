@@ -21,7 +21,7 @@ main {
   height: 100vh;
   width: 100vw;
   gap: 15px;
-  background-color: #334EAC;
+  background-color: #2463b3;
   overflow: hidden;
 }
 
@@ -33,7 +33,7 @@ main {
   gap: 20px;
   height: 25%;
   width: 100%;
-  background-color: #081F5C;
+  background-color: #273a6d;
   border-radius: 0 0 45px 45px;
   box-shadow: 0px 6px 12px #000000ad;
 }
@@ -102,18 +102,18 @@ main {
   z-index: 1;
   opacity: 0;
   transform: translateY(150%);
-  animation: slideIn 1s ease forwards;
+  animation: slideIn 1s ease forwards 6500ms;
 }
 .layer2 .carrosel {
   display: flex;
   align-items: center;
   overflow: hidden;
-  width: 315px;
-  height: 115px;
-  border-radius: 20px;
-  border: 6px solid #cacacabd;
+  width: 330px;
+  max-height: 40%;
+  border-radius: 24px;
+  border: 4px solid #92abff;
   box-shadow: 2px 2px 4px rgb(0 0 0 / 45%);
-  transform: translateX(7.5%);
+  transform: translateX(5.5%);
 }
 .layer2 .carrosel .carrosel-img {
   width: 100%;
@@ -190,5 +190,55 @@ main {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+
+
+.loading {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: ghostwhite;
+  border-radius: 0 0 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 120vh;
+  transform: translateY(-10%);
+  animation: load 3s cubic-bezier(0.64, 0, 0.89, 1) 4s;
+}
+
+@keyframes load {
+  0% {
+    transform: translateY(-10%);
+  }
+  20% {
+    transform: translateY(-8%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.loading .load-img {
+  width: 210px;
+  border-radius: 30px;
+  opacity: 1;
+  animation: pop 3s cubic-bezier(0.42, 0, 0.22, 0.97) ;
+}
+
+@keyframes pop {
+  0%{
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }

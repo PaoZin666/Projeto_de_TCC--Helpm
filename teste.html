@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestão de Denúncias</title>
+        <style>
+            /* (O mesmo estilo existente no seu código anterior) */
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Gestão de Denúncias</h1>
+            <p>Acompanhe e gerencie denúncias de forma simples e eficaz.</p>
+        </header>
+    
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('acompanhamento')">Acompanhamento</button>
+            <button class="tab-button" onclick="showTab('retrato')">Retrato Falado</button>
+        </div>
+    
+        <!-- Aba de Acompanhamento -->
+        <div id="acompanhamento" class="tab-content active">
+            <section>
+                <h2>Status das Denúncias</h2>
+                <div class="status-buttons">
+                    <div class="status-button status-pending">Denúncia Pendente</div>
+                    <div class="status-button status-received">Denúncia Recebida</div>
+                    <div class="status-button status-progress">Em Andamento</div>
+                    <div class="status-button status-resolved">Resolvida</div>
+                </div>
+                <textarea placeholder="Deixe seu feedback sobre esta denúncia..." rows="4"></textarea>
+                <button>Enviar Feedback</button>
+            </section>
+        </div>
+    
+        <!-- Aba de Retrato Falado -->
+        <div id="retrato" class="tab-content">
+            <section>
+                <h2>Criação de Retrato Falado</h2>
+                <p>Preencha os dados abaixo com as características da pessoa a ser descrita.</p>
+                <form>
+                    <!-- Campos existentes -->
+                    <label for="formaRosto">Formato do rosto:</label>
+                    <select id="formaRosto" name="formaRosto">
+                        <option value="oval">Oval</option>
+                        <option value="quadrado">Quadrado</option>
+                        <option value="redondo">Redondo</option>
+                    </select>
+    
+                    <label for="corPele">Tom de pele:</label>
+                    <input type="text" id="corPele" name="corPele" placeholder="Exemplo: Claro, médio, escuro">
+    
+                    <label for="cabelo">Descrição do cabelo:</label>
+                    <input type="text" id="cabelo" name="cabelo" placeholder="Exemplo: Longo, cacheado, castanho">
+    
+                    <label for="olhos">Características dos olhos:</label>
+                    <input type="text" id="olhos" name="olhos" placeholder="Exemplo: Pequenos, castanhos, amendoados">
+    
+                    <label for="nariz">Formato do nariz:</label>
+                    <input type="text" id="nariz" name="nariz" placeholder="Exemplo: Fino, largo, arredondado">
+    
+                    <label for="boca">Formato da boca:</label>
+                    <input type="text" id="boca" name="boca" placeholder="Exemplo: Carnuda, fina, média">
+    
+                    <label for="detalhes">Outros detalhes:</label>
+                    <textarea id="detalhes" name="detalhes" rows="4" placeholder="Exemplo: Cicatrizes, tatuagens, óculos"></textarea>
+    
+                    <button type="submit">Gerar Retrato</button>
+                </form>
+    
+                <h2>Atualizar Status do Retrato Falado</h2>
+                <form>
+                    <label for="statusRetrato">Status do Retrato:</label>
+                    <select id="statusRetrato" name="statusRetrato">
+                        <option value="pendente">Pendente</option>
+                        <option value="emProgresso">Em Progresso</option>
+                        <option value="concluido">Concluído</option>
+                    </select>
+    
+                    <label for="comentariosPolicial">Comentários:</label>
+                    <textarea id="comentariosPolicial" name="comentariosPolicial" rows="4" placeholder="Adicione informações sobre o progresso"></textarea>
+    
+                    <button type="submit">Atualizar Status</button>
+                </form>
+            </section>
+        </div>
+</body>
+</html>

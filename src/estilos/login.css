@@ -20,7 +20,7 @@ main {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #8ca6ffb0;
+  background: linear-gradient(180deg, #427fd2 15%, #7ad7fe 100%);
   overflow: hidden;
 }
 
@@ -107,7 +107,7 @@ main {
 .login-button {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #69adf2;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
@@ -118,7 +118,7 @@ main {
 }
 
 .login-button:hover {
-  background-color: #003366;
+  background-color: #3d72af;
   transform: scale(1.05);
 }
 

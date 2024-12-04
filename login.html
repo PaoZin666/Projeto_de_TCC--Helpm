@@ -23,7 +23,7 @@
 					<img class="logo" src="./public/assents/img/logo.png">
 					<h2 class="login-title">Login</h2>
 				</div>
-				<form action="/login" method="POST" class="login-form">
+				<form action="index.html" method="POST" class="login-form">
 					<div class="form-group">
 						<label for="email" class="form-label">Email:</label>
 						<input type="email" id="email" name="email" class="form-input" required>
@@ -42,12 +42,18 @@
 
 					<div class="form-footer">
 						<p class="signup-link">Não tem uma conta? <a href="./register.html">Cadastre-se</a></p>
-						<p class="forgot-password"><a href="./forgot-password">Esqueceu a senha?</a></p>
+						<p class="forgot-password"><a href="./forgot-password.html">Esqueceu a senha?</a></p>
 					</div>
 				</form>
 			</div>
 		</div>
 	</main>
+	<script>
+		document.querySelector('.login-form').addEventListener('submit', function(event) {
+			event.preventDefault();
+			window.location.href = "index.html"; 
+		});
+	</script>
+	
 </body>
-
 </html>
