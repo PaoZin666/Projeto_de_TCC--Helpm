@@ -2,7 +2,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    background: #f7fafe; /* Fundo suave */
+    background: #f7fafe; 
     color: #333;
     position: absolute;
     top: 0;
@@ -20,7 +20,7 @@ header {
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background: #eaf4fc; /* Azul suave */
+    background: #eaf4fc;
     border-bottom: 2px solid #d1e6f5;
 }
 
@@ -36,7 +36,7 @@ header h1 {
 }
 
 main {
-    background: whitesmoke;
+    background: linear-gradient(180deg, #427fd2 15%, #7ad7fe 100%);
     padding: 15px;
 }
 

@@ -6,27 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./public/assents/img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" href="./src/estilos/reset.css">
     <link rel="stylesheet" href="./src/estilos/mapa.css">
-    <title>Mapa de Salvador | Testando</title>
+    <title>Mapa de Risco de Salvador</title>
 </head>
 
 <body>
     <main>
-    <div class="container">
-        <header>
-            <h1>Mapa de Salvador | Testando</h1>
-            <p>Passe o mouse sobre as regiões para ver seus nomes.</p>
-        </header>
+        <div class="container">
+            <header>
+                <img src="./public/assents/img/logo.png"  class="foto-redonda">
+                <h1>MAPA DE RISCO</h1>
+                <p>SALVADOR - BAHIA</p>
+                <h4>Mapa de Risco de Salvador por Bairro</h4>
+            </header>
 
-        <div id="regiaoInfo" class="info-box">
-            <p id="regiaoNome">Passe o mouse sobre uma região.</p>
+            <div id="map"></div>
+
+            <div class="legend">
+                <h4>Legenda de Risco - Bairro</h4>
+                <div><span style="background-color: #FF0000;"></span> Altamente Perigoso</div>
+                <div><span style="background-color: #FFA500;"></span> Consideravelmente Perigoso</div>
+                <div><span style="background-color: #FFFF00;"></span> Levemente Perigoso</div>
+                <div><span style="background-color: #0000FF;"></span> Minimamente Perigoso</div>
+            </div>
         </div>
-
-        <object id="mapa" type="image/svg+xml" data="./utils/svg/mapa_alterar.svg"></object>
-
-    </div>
     </main>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([-12.9714, -38.5014], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: 'Map data © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var bairros = [
+            { name: "Fazenda Grande do Retiro", riskLevel: "alto", lat: -12.9999, lng: -38.4643 },
+            { name: "Paripe", riskLevel: "alto", lat: -12.9577, lng: -38.4536 },
+            { name: "Liberdade", riskLevel: "alto", lat: -12.9730, lng: -38.4776 },
+            { name: "Vale das Pedrinhas", riskLevel: "alto", lat: -12.9614, lng: -38.4870 },
+            { name: "Nordeste de Amaralina", riskLevel: "médio", lat: -12.9812, lng: -38.4781 },
+            { name: "Fazenda Coutos", riskLevel: "médio", lat: -12.9295, lng: -38.4874 },
+            { name: "São Caetano", riskLevel: "médio", lat: -12.9572, lng: -38.4842 },
+            { name: "Tancredo Neves", riskLevel: "médio", lat: -12.9700, lng: -38.4695 },
+            { name: "Pernambués", riskLevel: "médio", lat: -12.9794, lng: -38.4883 },
+            { name: "Federação", riskLevel: "médio", lat: -12.9742, lng: -38.4770 },
+            { name: "Barra", riskLevel: "baixo", lat: -13.0000, lng: -38.5022 },
+            { name: "Rio Vermelho", riskLevel: "baixo", lat: -13.0039, lng: -38.4960 },
+            { name: "Ondina", riskLevel: "baixo", lat: -13.0055, lng: -38.4834 },
+            { name: "Graça", riskLevel: "baixo", lat: -13.0107, lng: -38.4765 },
+            { name: "Vitória", riskLevel: "baixo", lat: -13.0110, lng: -38.4792 },
+            { name: "Horto Florestal", riskLevel: "baixo", lat: -13.0105, lng: -38.4600 }
+        ];
+
+        function getColor(riskLevel) {
+            return riskLevel === "alto" ? "#FF0000" :
+                riskLevel === "médio" ? "#FFA500" :
+                    "#0000FF";
+        }
+
+        bairros.forEach(function (bairro) {
+            var marker = L.circleMarker([bairro.lat, bairro.lng], {
+                color: getColor(bairro.riskLevel),
+                radius: 10,
+                fillOpacity: 0.5
+            }).addTo(map);
+
+            marker.bindPopup("<b>" + bairro.name + "</b><br>Nível de Risco: " + bairro.riskLevel);
+        });
+    </script>
 </body>
-<script src="./src/scripts/mapa.js"></script>
+
 </html>
